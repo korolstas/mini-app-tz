@@ -1,0 +1,53 @@
+{
+  "search": "Enter full name of the sign...",
+  "signs": {
+    "sagittarius": {
+      "name": "Sagittarius",
+      "date": "Nov 23 – Dec 21"
+    },
+    "capricorn": {
+      "name": "Capricorn",
+      "date": "Dec 22 – Jan 20"
+    },
+    "aquarius": {
+      "name": "Aquarius",
+      "date": "Mar 21 – Apr 20"
+    },
+    "scorpio": {
+      "name": "Scorpio",
+      "date": "Oct 24 – Nov 22"
+    },
+    "gemini": {
+      "name": "Gemini",
+      "date": "May 21 – Jun 21"
+    },
+    "cancer": {
+      "name": "Cancer",
+      "date": "Jun 22 – Jul 22"
+    },
+    "taurus": {
+      "name": "Taurus",
+      "date": "Apr 21 – May 20"
+    },
+    "pisces": {
+      "name": "Pisces",
+      "date": "Feb 21 – Mar 20"
+    },
+    "aries": {
+      "name": "Aries",
+      "date": "Jan 21 – Feb 20"
+    },
+    "libra": {
+      "name": "Libra",
+      "date": "Sep 24 – Oct 23"
+    },
+    "virgo": {
+      "name": "Virgo",
+      "date": "Aug 24 – Sep 23"
+    },
+    "leo": {
+      "name": "Leo",
+      "date": "Jul 23 – Aug 23"
+    }
+  }
+}
