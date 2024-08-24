@@ -18,12 +18,17 @@ type THoroscopeBasicInfo = {
   period: string;
 };
 
-export interface THoroscopeRequest extends THoroscopeBasicInfo {
+export interface IHoroscopeRequest extends THoroscopeBasicInfo {
   sign?: string;
 }
 
-export interface THoroscopeData extends THoroscopeBasicInfo {
+export interface IHoroscopeData extends THoroscopeBasicInfo {
   horoscope: TSignHoroscope | string;
+}
+
+export interface IHoroscopeDrawer {
+  horoscope: string | null;
+  sign: string | null;
 }
 
 export enum SignsEnum {

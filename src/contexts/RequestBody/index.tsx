@@ -8,16 +8,19 @@ import {
   useState,
 } from "react";
 
-import { THoroscopeRequest } from "../../types";
+import { IHoroscopeDrawer, IHoroscopeRequest } from "../../types";
 import { useUserData } from "../UserData";
 
 type RequestBodyContextTypes = {
-  body: THoroscopeRequest;
+  body: IHoroscopeRequest;
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
   language: string | null;
   setLanguage: (language: string) => void;
   setSign: (sign?: string) => void;
+  dataDrawer: IHoroscopeDrawer | null;
+  openDrawer: ({ sign, horoscope }: IHoroscopeDrawer) => void;
+  closeDrawer: () => void;
 };
 
 export const RequestBodyContext = createContext<RequestBodyContextTypes>(
@@ -29,8 +32,9 @@ export const RequestBodyContextProvider = ({ children }: PropsWithChildren) => {
   const language = localStorage.getItem("i18nextLng") || language_code;
   const [loading, setLoading] = useState<boolean>(true);
   const loaded = sessionStorage.getItem("loaded");
+  const [dataDrawer, setDataDrawer] = useState<IHoroscopeDrawer | null>(null);
 
-  const [body, setBody] = useState<THoroscopeRequest>({
+  const [body, setBody] = useState<IHoroscopeRequest>({
     sign: undefined,
     language: language === "ru" ? "original" : "translated",
     period: "today",
@@ -52,6 +56,14 @@ export const RequestBodyContextProvider = ({ children }: PropsWithChildren) => {
     }));
   };
 
+  const openDrawer = ({ sign, horoscope }: IHoroscopeDrawer) => {
+    setDataDrawer({ sign, horoscope });
+  };
+
+  const closeDrawer = () => {
+    setDataDrawer(null);
+  };
+
   useEffect(() => {
     window.onload = function () {
       if (loaded) {
@@ -69,6 +81,9 @@ export const RequestBodyContextProvider = ({ children }: PropsWithChildren) => {
         setLanguage,
         setSign,
         loading,
+        openDrawer,
+        closeDrawer,
+        dataDrawer,
       }}
     >
       {children}
